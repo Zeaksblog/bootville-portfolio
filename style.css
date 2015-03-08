@@ -1,0 +1,18 @@
+/*
+Theme Name: Bootville Lite Portfolio
+Theme URI: http://yoursite/yourtheme
+Description: A child theme of Bootville Lite
+Author: Your Name
+Author url: http://yoursite.com/
+Version: 1.0
+Tags: black, blue, white, fixed-width, custom-header, theme-options
+Template: bootville-lite
+*/
+/*@import url(../bootville-lite/style.css);*/
+
+.portfolio .thumbnail { margin-bottom: 35px; }
+.portfolio-button.btn-block { border-radius: 0; }
+.portfolio-item a:hover { text-decoration: none; }
+.thumbnail img { padding: 0; }
+
+#filters { padding-bottom: 20px; }
