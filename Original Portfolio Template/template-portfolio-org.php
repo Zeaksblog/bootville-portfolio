@@ -32,17 +32,17 @@ get_header(); ?>
 				    echo "</div>";
 	//			}
 			?>
-				<?php 
-				$pcount = 4;	// Columns -1
-				$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
-				$args = array(
-				'posts_per_page' => 6,
-				'post_type' => 'portfolio',
-				'paged' => $paged,
-				);
-				$the_query = new WP_Query( $args );
-				?>
+			
+			<?php 
+			// Portfolio columns variable from Theme Options
+			$pcount = 4; ?>
+			
+			<?php 
+			// the query
+			$the_query = new WP_Query( array('post_type' => 'portfolio', 'posts_per_page' => 9) );
+//			$the_query = new WP_Query( array('post_type' => 'portfolio') ); ?>
 
+			<?php if ( $the_query->have_posts() ) : ?>
 
 				<div class="row">
 					<div id="portfolio-items">
@@ -89,17 +89,9 @@ get_header(); ?>
 
 				<?php wp_reset_postdata(); ?>
 
-				<?php
-				
-					$big = 999999999; // need an unlikely integer
-						echo paginate_links( array(
-						'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
-						'format' => '?paged=%#%',
-						'current' => max( 1, get_query_var('paged') ),
-						'total' => $the_query->max_num_pages
-					) );
-
-				?>
+			<?php else : ?>
+				<p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+			<?php endif; ?>
 
 			
 		</main><!-- #main -->
