@@ -13,10 +13,8 @@
 		<div class="row">
 			<div class="col-md-12 col-lg-12">
 				<?php if ( has_post_thumbnail() ) : ?>
-					<?php the_post_thumbnail('thumbnail', array('class' => 'alignleft')); ?>
+					<?php the_post_thumbnail('featured-large', array('class' => 'alignleft')); ?>
 				<?php endif; ?>
-			
-
 
 				<?php the_content(); ?>
 			</div>

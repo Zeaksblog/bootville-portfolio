@@ -73,7 +73,7 @@ get_header(); ?>
 						
 							<a class="thumbnail" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
 							<?php the_post_thumbnail(); ?>
-							<div class="portfolio-button btn btn-primary btn-md btn-block">View Item</div>
+							<div class="portfolio-button btn btn-primary btn-md btn-block"><?php the_title() ;?></div>
 							</a>
 							
 						
