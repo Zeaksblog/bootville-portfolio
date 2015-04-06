@@ -36,7 +36,7 @@ get_header(); ?>
 				$pcount = 4;	// Columns -1
 				$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 				$args = array(
-				'posts_per_page' => 6,
+				'posts_per_page' => -1,
 				'post_type' => 'portfolio',
 				'paged' => $paged,
 				);
@@ -73,10 +73,9 @@ get_header(); ?>
 						
 							<a class="thumbnail" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
 							<?php the_post_thumbnail(); ?>
-							<div class="portfolio-button btn btn-primary btn-md btn-block"><?php the_title() ;?></div>
-							</a>
-							
-						
+							<div class="portfolio-button btn btn-primary btn-block"><?php the_title() ;?></div>
+							</a>					
+
 						</div>
 					</div>
 					<?php endwhile; ?>
@@ -88,18 +87,6 @@ get_header(); ?>
 				
 
 				<?php wp_reset_postdata(); ?>
-
-				<?php
-				
-					$big = 999999999; // need an unlikely integer
-						echo paginate_links( array(
-						'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
-						'format' => '?paged=%#%',
-						'current' => max( 1, get_query_var('paged') ),
-						'total' => $the_query->max_num_pages
-					) );
-
-				?>
 
 			
 		</main><!-- #main -->
